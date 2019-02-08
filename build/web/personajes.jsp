@@ -32,10 +32,10 @@
                         <select  id="sendfilter" onchange="this.form.submit()"  name="sendfilter">
                             <option value="" disabled selected> Ordenar por</option>
                             <option value="1">Fecha de nacimiento</option>
-                            <option value="2">Pueblo</option>
+                            <option value="2">Localidad</option>
                             <option value="3">Nombre</option>
                             <option value="4">Apodo</option>
-                            <option value="5">Incompleto</option>
+                            <option value="5">Pendiente</option>
                         </select>
                     </form>
                 </div>
@@ -102,7 +102,7 @@
                 </div>
                 <%}
                     if (listaPersonaje.size() == 0) {%>
-                <span style="max-height: auto"> No se ha encontrado nigun personaje</span>
+                <span style="max-height: auto"> No se ha encontrado ningún personaje</span>
                 <% }%>
             </div>
         </div>

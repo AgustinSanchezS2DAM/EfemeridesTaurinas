@@ -26,7 +26,6 @@
                     Efemeride efemeride = (Efemeride) session.getAttribute("efemeride");
                     String fechaefemerideEdit = (String) session.getAttribute("fechaefemerideEdit");
                     String fecharealEdit = (String) session.getAttribute("fecharealEdit");
-                   
 
                     //cojo los dos arrays resto el completo con el array que efemreides y me salen los personajes no seleccionados
                     List<Personaje> listaPersonajesCompleta = (List<Personaje>) session.getAttribute("listapersonajes");
@@ -44,33 +43,32 @@
                 <div class="row">
                     <!-- Start col 1-->
                     <div class="col s12 m4 l4">
-                        <label for="province" class="black_taurinas">Provincia</label>
-                        <input id="province" type="text" class="validate" name="province" value="<%=efemeride.getProvincia()%>">
-                        <label for="town" class="black_taurinas">Pueblo</label>
+                        <label for="date" required="true" class="black_taurinas">Fecha de la efeméride *</label>
+                        <input  id="date" type="text" class="datepicker" name="date" value="<%=fechaefemerideEdit%>">
+                        <label for="town" required="true" class="black_taurinas">Localidad *</label>
                         <input  id="town" type="text" class="validate" name="town" value="<%=efemeride.getPueblo()%>">
-                        <label for="event" class="black_taurinas">Tipo de Evento</label>
-                        <input  id="event" type="text" class="validate" name="event" value="<%=efemeride.getTipoevento()%>">
+                        <label for="ganadery" class="black_taurinas">Ganadería</label>
+                        <input  id="ganadery" type="text" class="validate" name="ganadery" value="<%=efemeride.getGanaderia()%>">
                     </div>
                     <!-- End col 1-->
                     <!-- Start col 2-->
+                    <div class="col s12 m4 l4">
+                        <label for="event"required="true"  class="black_taurinas">Titulo de Evento *</label>
+                        <input  id="event" type="text" class="validate" name="event" value="<%=efemeride.getTipoevento()%>">
+                        <label for="province" required="true" class="black_taurinas">Provincia *</label>
+                        <input id="province" type="text" class="validate" name="province" value="<%=efemeride.getProvincia()%>">
+                        <label for="report" class="black_taurinas">Reportaje</label>
+                        <input  id="report" type="text" class="validate" name="report" value="<%=efemeride.getReportaje()%>">
+                    </div>
+                    <!-- End col 2-->
+                    <!-- Start col 3-->
                     <div class="col s12 m4 l4">
                         <label for="foto" class="black_taurinas">Fotografía</label>
                         <input  id="foto" type="text" class="validate" name="foto" value="<%=efemeride.getFoto()%>">
                         <label for="cartel" class="black_taurinas">Cartel</label>
                         <input  id="cartel" type="text" class="validate" name="cartel" value="<%=efemeride.getCartel()%>">
-                        <label for="ganadery" class="black_taurinas">Ganadería</label>
-                        <input  id="ganadery" type="text" class="validate" name="ganadery" value="<%=efemeride.getGanaderia()%>">
-
-                    </div>
-                    <!-- End col 2-->
-                    <!-- Start col 3-->
-                    <div class="col s12 m4 l4">
-                        <label for="date" class="black_taurinas">Fecha de la efeméride</label>
-                        <input  id="date" type="text" class="datepicker" name="date" value="<%=fechaefemerideEdit%>">
                         <label for="real_date" class="black_taurinas">Fecha real</label>
                         <input  id="real_date" type="text" class="datepicker" name="real_date" value="<%=fecharealEdit%>">
-                        <label for="report" class="black_taurinas">Reportaje</label>
-                        <input  id="report" type="text" class="validate" name="report" value="<%=efemeride.getReportaje()%>">
                     </div>
                     <!-- End col 3-->
                 </div>

@@ -56,6 +56,7 @@ function init() {
         monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         weekdaysShort: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
         formatSubmit: 'yyyy/mm/dd',
+        format: 'yyyy/mm/dd',
         clear: 'Limpiar',
         close: 'Ok',
         closeOnSelect: false, // Close upon selecting a date,

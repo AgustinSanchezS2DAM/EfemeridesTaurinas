@@ -70,13 +70,13 @@ public class Inform {
             table2.setWidths(new float[]{30, 70});
 
             DateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
-            
-            table2.addCell("Nombre cartel");
-            table2.addCell(p.getNombrecartel());
-            
+
+            table2.addCell("Nombre");
+            table2.addCell(p.getNombrepersonaje());
+
             table2.addCell("Primer Apellido");
             table2.addCell(p.getApellido1());
-            
+
             table2.addCell("Segundo Apellido");
             table2.addCell(p.getApellido2());
 
@@ -89,11 +89,17 @@ public class Inform {
             table2.addCell("Nombre de cartel");
             table2.addCell(p.getNombrecartel());
 
+            table2.addCell("Provincia Actual");
+            table2.addCell(p.getProvinciaactual());
+
+            table2.addCell("Provincia Nacimiento");
+            table2.addCell(p.getProvincianacimiento());
+
             String fechaalternativaEdit = "";
             String fechanacimientoEdit = "";
             String fechapicadoresEdit = "";
             String fechapresentacionEdit = "";
-            
+
             if (p.getFechanacimiento() != null) {
                 fechanacimientoEdit = dateFormat.format(p.getFechanacimiento());
             }
@@ -104,18 +110,18 @@ public class Inform {
             if (p.getFechapicadores() != null) {
                 fechapicadoresEdit = dateFormat.format(p.getFechapicadores());
             }
-            
+
             table2.addCell("Fecha de Picadores");
             table2.addCell(fechapicadoresEdit);
-            
+
             if (p.getFechapresentacion() != null) {
                 fechapresentacionEdit = dateFormat.format(p.getFechapresentacion());
             }
 
             table2.addCell("Fecha de presentación");
             table2.addCell(fechapresentacionEdit);
-            
-             if (p.getFechaalternativa() != null) {
+
+            if (p.getFechaalternativa() != null) {
                 fechaalternativaEdit = dateFormat.format(p.getFechaalternativa());
             }
 
@@ -131,45 +137,36 @@ public class Inform {
             table2.addCell("Contacto");
             table2.addCell(p.getPersonadecontacto());
 
+            table2.addCell("Localidad actual");
+            table2.addCell(p.getPueblonacimiento());
+
+            table2.addCell("Localidad nacimiento");
+            table2.addCell(p.getPueblonacimiento());
+
             table2.addCell("Correo");
             table2.addCell(p.getCorreo());
 
-            table2.addCell("Biogradía");
+            table2.addCell("Biografía");
             table2.addCell(p.getBiografia());
 
             table2.addCell("Notas");
             table2.addCell(p.getNotas());
 
-            table2.addCell("Provincia Actual");
-            table2.addCell(p.getProvinciaactual());
-
-            table2.addCell("Provincia Nacimiento");
-            table2.addCell(p.getProvincianacimiento());
-
-            table2.addCell("Pueblo actual");
-            table2.addCell(p.getPueblonacimiento());
-
-            table2.addCell("Pueblo nacimiento");
-            table2.addCell(p.getPueblonacimiento());
-
             int contador = 1;
             for (int i = 0; i < p.getProfesionList().size(); i++) {
-
                 table2.addCell(contador + "º Profesión");
                 table2.addCell(p.getProfesionList().get(i).getDescripcion());
                 contador++;
             }
 
             table2.setSpacingBefore(50);
-
             documento.add(table2);
-
             System.out.println("Documento creado");
 
-            
             documento.close();
         } catch (DocumentException de) {
             Logger.getLogger(Inform.class.getName()).log(Level.SEVERE, null, de);
+            de.printStackTrace();
         }
 
     }
@@ -202,50 +199,52 @@ public class Inform {
             table.setSpacingAfter(25);
             documento.add(table);
 
-
-            DateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+            //DateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy", Locale.ENGLISH);
 
             PdfPTable table2 = new PdfPTable(2);
-            
+
             String fechaefemeride = "";
             String fechareal = "";
-            
+
             if (e.getFechaefemeride() != null) {
                 fechaefemeride = dateFormat.format(e.getFechaefemeride());
             }
-            
-            
+
             table2.addCell("Fecha Efeméride");
             table2.addCell(fechaefemeride);
 
-             if (e.getFechareal() != null) {
-                fechareal = dateFormat.format(e.getFechareal());
-            }
-             
-            table2.addCell("Fecha Real ");
-            table2.addCell(fechareal);
-
-            
-            table2.addCell("Evento");
+            table2.addCell("Título del evento");
             table2.addCell(e.getTipoevento());
-            
-            table2.addCell("Reportaje");
-            table2.addCell(e.getReportaje());
 
-            table2.addCell("Ganadería");
-            table2.addCell(e.getGanaderia());
-
-            table2.addCell("Cartel");
-            table2.addCell(e.getCartel());
-
-            table2.addCell("Población");
+            table2.addCell("Localidad");
             table2.addCell(e.getPueblo());
 
             table2.addCell("Provincia");
             table2.addCell(e.getProvincia());
 
+            if (e.getFechareal() != null) {
+                fechareal = dateFormat.format(e.getFechareal());
+            }
+
+            table2.addCell("Fecha Real");
+            table2.addCell(fechareal);
+
+            table2.addCell("Ganadería");
+            table2.addCell(e.getGanaderia());
+
+            table2.addCell("Reportaje");
+            table2.addCell(e.getReportaje());
+
+            table2.addCell("Cartel");
+            table2.addCell(e.getCartel());
+
             table2.addCell("Notas");
             table2.addCell(e.getNotas());
+
+            table2.addCell("Fuente");
+            table2.addCell(e.getFuente());
+
             table2.setSpacingBefore(50);
 
             documento.add(table2);
@@ -273,7 +272,6 @@ public class Inform {
 
             System.out.println("Documento creado");
 
-            
             documento.close();
         } catch (DocumentException de) {
             Logger.getLogger(Inform.class.getName()).log(Level.SEVERE, null, de);

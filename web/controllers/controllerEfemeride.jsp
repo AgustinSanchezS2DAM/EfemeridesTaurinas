@@ -4,6 +4,7 @@
     Author     : agustin
 --%>
 
+<%@page import="java.util.Locale"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="javax.persistence.EntityTransaction"%>
 <%@page import="methods.Inform"%>
@@ -44,8 +45,7 @@
                 }
 
             }
-
-            SimpleDateFormat formatter = new SimpleDateFormat("dd MMM, yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
             String op = null;
             String sql = null;
             Query q = null;
@@ -70,7 +70,7 @@
                     if (efem.getFechaefemeride() != null) {
                         fechaefemerideEdit = dateFormat.format(efem.getFechaefemeride());
                     }
-                    
+
                     if (efem.getFechareal() != null) {
                         fecharealEdit = dateFormat.format(efem.getFechareal());
                     }
@@ -114,7 +114,7 @@
                     em.getTransaction().commit();
 
                     response.sendRedirect("controllerEfemeride.jsp?op=loadallefems");
-                    session.setAttribute("correctmessage", "Eliminada la efemeride de " + e.getPersonajeList().get(0).getNombrepersonaje());
+                    session.setAttribute("correctmessage", "Efeméride eliminada correctamente");
 
                 } catch (Exception e) {
                     session.setAttribute("errormessage", e.toString());
@@ -136,8 +136,8 @@
                     String fuente = new String(request.getParameter("fuente").getBytes("ISO-8859-1"), "UTF-8");
                     String lista[] = request.getParameterValues("idpersonajes");
 
-                    ArrayList<Personaje> listPersonajesSelect = new ArrayList<>();
-
+                    List<Personaje> listPersonajesSelect = new ArrayList<>();
+                    
                     for (int i = 0; i < lista.length; i++) {
                         sql = "SELECT P FROM Personaje P WHERE P.idpersonaje =" + lista[i];
                         q = em.createQuery(sql);
@@ -159,11 +159,11 @@
                     efemeride.setNotas(notas);
                     efemeride.setFuente(fuente);
 
-                    if (fechaefemeride.length() !=0) {
+                    if (fechaefemeride.length() != 0) {
                         efemeride.setFechaefemeride(formatter.parse(fechaefemeride));
                     }
 
-                    if (fechareal.length() !=0) {
+                    if (fechareal.length() != 0) {
                         efemeride.setFechareal(formatter.parse(fechareal));
                     }
 
@@ -182,8 +182,8 @@
                     session.setAttribute("errormessage", "Guardada correctamente la efeméride");
                 } catch (Exception e) {
                     response.sendRedirect("controllerEfemeride.jsp?op=loadallefems");
-                    session.setAttribute("errormessage", "Error al crear la efemeride" + e);
-
+                    session.setAttribute("errormessage", "Error al crear la efemeride ");
+                    e.printStackTrace();
                 }
 
             } else if (op.equals("loadllcharactersforefemerides")) {
@@ -284,11 +284,11 @@
                     efemeride.setNotas(notas);
                     efemeride.setFuente(fuente);
 
-                    if (fechaefemeride.length() !=0) {
+                    if (fechaefemeride.length() != 0) {
                         efemeride.setFechaefemeride(formatter.parse(fechaefemeride));
                     }
 
-                    if (fechareal.length() !=0) {
+                    if (fechareal.length() != 0) {
                         efemeride.setFechareal(formatter.parse(fechareal));
                     }
 
@@ -314,6 +314,31 @@
                     out.print(e);
                 }
 
+            } else if (op.equals("searchEfemerdeByDate")) {
+                try {
+
+                    String fecha = request.getParameter("date");
+
+                    if (fecha == null || fecha.length() <= 0) {
+                        response.sendRedirect("controllerEfemeride.jsp?op=loadallefems");
+                        session.setAttribute("errormessage", "Escriba una fecha");
+                    } else {
+                        String[] cadena = fecha.split("/");
+                        String auxDate = cadena[2] + "-" + cadena[1] + "-" + cadena[0];
+
+                        sql = "SELECT E FROM Efemeride E WHERE E.fechaefemeride ='" + auxDate + "'";
+                        q = em.createQuery(sql);
+                        q.setHint("javax.persistence.cache.storeMode", "REFRESH");
+                        listaefemerides = (List<Efemeride>) q.getResultList();
+                        session.setAttribute("listaefemerides", listaefemerides);
+
+                        response.sendRedirect("../efemerides.jsp");
+                    }
+
+                } catch (Exception e) {
+                    response.sendRedirect("controllerEfemeride.jsp?op=loadallefems");
+                    session.setAttribute("errormessage", "Error al intetar buscar por fecha");
+                }
             }
         %>
     </body>

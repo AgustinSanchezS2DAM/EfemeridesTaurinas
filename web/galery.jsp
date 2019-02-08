@@ -76,7 +76,7 @@
                     <tr>
                         <td><%=personajeEdit.getNombrepersonaje()%> <%=personajeEdit.getApellido1()%> <%=personajeEdit.getApellido2()%></td>
                         <td>"<%=personajeEdit.getApodo1()%>"</td>
-                        <td><img class="materialboxed" width="60" src="<%=f.getImagen()%>"></td>
+                        <td><img class="materialboxed" onerror="this.src='assets/img/no-photo.png';" width="60" src="<%=f.getImagen()%>"></td>
 
                         <td>
                             <form class="delete-profesion" action="controllers/controller.jsp?op=deleteImage" method="POST" name="deleteImage">

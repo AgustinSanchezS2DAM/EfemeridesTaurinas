@@ -47,31 +47,30 @@
             <div class="row">
                 <!-- Start col 1-->
                 <div class="col s12 m4 l4">
-                    <label for="province" class="black_taurinas">Provincia</label>
-                    <input disabled="true" id="province" type="text" class="validate" name="province" value="<%=efemeride.getProvincia()%>">
-                    <label for="town" class="black_taurinas">Pueblo</label>
+                     <label for="date" class="black_taurinas">Fecha efeméride</label>
+                    <input disabled="true" id="date" type="text" class="datepicker" name="date" value="<%=fechaefemerideEdit%>">
+                    <label for="town" class="black_taurinas">Localidad</label>
                     <input disabled="true" id="town" type="text" class="validate" name="town" value="<%=efemeride.getPueblo()%>">
-                    <label for="event" class="black_taurinas">Tipo de Evento</label>
-                    <input disabled="true" id="event" type="text" class="validate" name="event" value="<%=efemeride.getTipoevento()%>">
+                     <label for="ganadery" class="black_taurinas">Ganadería</label>
+                    <input disabled="true" id="ganadery" type="text" class="validate" name="ganadery" value="<%=efemeride.getGanaderia()%>">
                 </div>
                 <!-- End col 1-->
                 <!-- Start col 2-->
                 <div class="col s12 m4 l4">
-                    <label for="foto" class="black_taurinas">Fotografía</label>
-                    <input disabled="true" id="foto" type="text" class="validate" name="foto" value="<%=efemeride.getFoto()%>">
-                    <label for="cartel" class="black_taurinas">Cartel</label>
-                    <input disabled="true" id="cartel" type="text" class="validate" name="cartel" value="<%=efemeride.getCartel()%>">
-                    <label for="ganadery" class="black_taurinas">Ganadería</label>
-                    <input disabled="true" id="ganadery" type="text" class="validate" name="ganadery" value="<%=efemeride.getGanaderia()%>">
-
+                    <label for="event" class="black_taurinas">Título del evento</label>
+                    <input disabled="true" id="event" type="text" class="validate" name="event" value="<%=efemeride.getTipoevento()%>">
+                    <label for="province" class="black_taurinas">Provincia</label>
+                    <input disabled="true" id="province" type="text" class="validate" name="province" value="<%=efemeride.getProvincia()%>">
+                    <label for="real_date" class="black_taurinas">Fecha Real</label>
+                    <input disabled="true" id="real_date" type="text" class="datepicker" name="real_date" value="<%=fecharealEdit%>">
                 </div>
                 <!-- End col 2-->
                 <!-- Start col 3-->
                 <div class="col s12 m4 l4">
-                    <label for="date" class="black_taurinas">Fecha Efemeride</label>
-                    <input disabled="true" id="date" type="text" class="datepicker" name="date" value="<%=fechaefemerideEdit%>">
-                    <label for="real_date" class="black_taurinas">Fecha Real</label>
-                    <input disabled="true"" id="real_date" type="text" class="datepicker" name="real_date" value="<%=fecharealEdit%>">
+                    <label for="foto" class="black_taurinas">Fotografía</label>
+                    <input disabled="true" id="foto" type="text" class="validate" name="foto" value="<%=efemeride.getFoto()%>">
+                    <label for="cartel" class="black_taurinas">Cartel</label>
+                    <input disabled="true" id="cartel" type="text" class="validate" name="cartel" value="<%=efemeride.getCartel()%>">  
                     <label for="report" class="black_taurinas">Reportaje</label>
                     <input disabled="true" id="report" type="text" class="validate" name="report" value="<%=efemeride.getReportaje()%>">
                 </div>

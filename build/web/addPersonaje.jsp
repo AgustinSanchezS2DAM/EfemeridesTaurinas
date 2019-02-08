@@ -22,9 +22,9 @@ Author     : agustin
                 <div class="row">
                     <!-- Start col 1-->
                     <div class="col s12 m6 l6">
-                        <label for="first_name" class="black_taurinas">Nombre</label>
+                        <label for="first_name" class="black_taurinas">Nombre *</label>
                         <input id="first_name" required="true" type="text" class="validate" name="first_name"/>
-                        <label for="surname" class="black_taurinas">Primer Apellido</label>
+                        <label for="surname" class="black_taurinas">Primer Apellido *</label>
                         <input  id="frist_surname" required="true" type="text" class="validate" name="frist_surname"/>
                         <label for="second_surname"  class="black_taurinas">Segundo Apellido</label>
                         <input  id="surname" type="text" class="validate" name="second_surname">
@@ -36,13 +36,13 @@ Author     : agustin
                     <!-- End col 1-->
                     <!-- Start col 2-->
                     <div class="col s12 m6 l6">
-                        <label for="first_nickname" class="black_taurinas">Primer Apodo</label>
-                        <input id="first_nickname" type="text" class="validate" name="first_nickname"/>
+                        <label for="first_nickname" class="black_taurinas">Primer Apodo *</label>
+                        <input id="first_nickname" required="true" type="text" class="validate" name="first_nickname"/>
                         <label for="second_nickname" class="black_taurinas">Segundo Apodo</label>
                         <input id="second_nickname" type="text" class="validate" name="second_nickname"/>
-                        <label for="birth_date" required="true" class="black_taurinas">Fecha Nacimiento</label>
+                        <label for="birth_date" class="black_taurinas">Fecha Nacimiento</label>
                         <input id="birth_date" type="text" class="datepicker" name="birth_date"/>
-                        <label for="birth_town" class="black_taurinas">Pueblo de nacimiento</label>
+                        <label for="birth_town" class="black_taurinas">Localidad de nacimiento</label>
                         <input id="birth_town" type="text" class="validate" name="birth_town"/>
                         <label for="presentation_date"  class="black_taurinas">Fecha Presentación</label>
                         <input id="presentation_date" type="text" class="datepicker" name="presentation_date"/>
@@ -119,7 +119,7 @@ Author     : agustin
                     <!-- End col 1-->
                     <!-- Start col 2-->
                     <div class="col s12 m6 l6">
-                        <label for="current_town" class="black_taurinas">Pueblo actual</label>
+                        <label for="current_town" class="black_taurinas">Localidad actual</label>
                         <input id="current_town" type="text" class="validate" name="current_town"/>
                     </div>
                     <!-- End col 2-->

@@ -33,7 +33,6 @@
                 if (personajedatail.getFotosList().size() > 0) {
                     img = personajedatail.getFotosList().get(0).getImagen();
                 }
-
             %>
             <!-- Start Row title-->
             <div class="row">
@@ -102,8 +101,8 @@
                     <input disabled value="<%=personajedatail.getDireccion()%>" id="direction" type="text" class="validate">
                     <label for="contact" class="black_taurinas">Contacto</label>
                     <input disabled value="<%=personajedatail.getPersonadecontacto()%>" id="contact" type="text" class="validate">
-                    <label for="brith_town" class="black_taurinas">Pueblo de nacimiento</label>
-                    <input disabled value="<%=0%>" id="brith_town" type="text" class="validate">
+                    <label for="brith_town" class="black_taurinas">Localidad de nacimiento</label>
+                    <input disabled value="<%=personajedatail.getPueblonacimiento()%>" id="brith_town" type="text" class="validate">
                 </div>
                 <!-- End second col personal detail-->
                 <!-- Start third col personal detail-->
@@ -133,7 +132,7 @@
                 <div class="col s12 m6 l6">
                     <label for="current_province" class="black_taurinas">Provincia actual</label>
                     <input disabled value="<%=personajedatail.getProvinciaactual()%>" id="current_province" type="text" class="validate">
-                    <label for="current_town" class="black_taurinas">Pueblo actual</label>
+                    <label for="current_town" class="black_taurinas">Localidad actual</label>
                     <input disabled value="<%=personajedatail.getPuebloactual()%>" id="current_town" type="text" class="validate">
 
                 </div>

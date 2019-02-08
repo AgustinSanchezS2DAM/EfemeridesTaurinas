@@ -41,21 +41,26 @@
                             <option value="" disabled selected>Ordenar por</option>
                             <option value="1">Fecha</option>
                             <option value="2">Provincia</option>
-                            <option value="3">Pueblo</option>
+                            <option value="3">Localidad</option>
                         </select>
                     </form>
                     <script language="javascript" type="text/javascript">
                         poncombo(document.formfilterefe.sendfilterefe, '<%=session.getAttribute("sendfilterefe")%>');
                     </script>
                 </div>
-                <div class="col s12 m4 l4 center-align">
-                    <form class="search-form" action="controllers/controller.jsp?op=searchcharacter" method="POST" name="formsearch">
-                        <input type="text" class="datepicker">
-                        <button type="submit"  class="waves-effect waves-light btn background_color_red button_search tooltipped" data-position="bottom" data-delay="50" data-tooltip="Busca por nombre o apodo" ><i class="material-icons left">search</i></button>
+                <div class="col s12 m5 l5 center-align">
+                    <form class="search-form" action="controllers/controllerEfemeride.jsp?op=searchEfemerdeByDate" method="POST" name="formsearch">
+                        <!--<input  id="date" type="text" class="datepicker" name="date">-->
+                        <div class="col s12 m6 l6">
+                            <input placeholder="dd/mm/yyyy" id="date" name="date" type="text" class="validate">
+                        </div>
+                        <div class="col s12 m4 l4">
+                            <button type="submit"  class="waves-effect waves-light btn background_color_red button_search tooltipped" data-position="bottom" data-delay="50" data-tooltip="Busca por nombre o apodo" ><i class="material-icons left">search</i></button>
+                        </div>
                     </form>
                 </div>
-                <div class="col s12 m4 l4 margin_top right">
-                    <a class="waves-effect waves-light btn grey darken-4" href="controllers/controllerEfemeride.jsp?op=loadllcharactersforefemerides">añadir efeméride</a>
+                <div class="col s12 m3 l3 margin_top right">
+                    <a class="waves-effect waves-light btn grey darken-4" style="margin-top: -18px;" href="controllers/controllerEfemeride.jsp?op=loadllcharactersforefemerides">añadir efeméride</a>
                 </div>
             </div>
 
@@ -80,7 +85,7 @@
                         <div class="card-content min_height_card_efemeride">
                             <h5>Evento: <%=listaefemerides.get(i).getTipoevento()%></h5>
                             <p>Fecha: <%=date%></p>
-                            <p>Pueblo: <%=listaefemerides.get(i).getPueblo()%></p>
+                            <p>Localidad: <%=listaefemerides.get(i).getPueblo()%></p>
                             <p>Provincia: <%=listaefemerides.get(i).getProvincia()%></p>
                         </div>
                         <div class="card-action">

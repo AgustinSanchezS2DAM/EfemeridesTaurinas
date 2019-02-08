@@ -23,33 +23,32 @@
                 <div class="row">
                     <!-- Start col 1-->
                     <div class="col s12 m4 l4">
-                        <label for="province" class="black_taurinas">Provincia</label>
-                        <input  id="province" type="text" class="validate" name="province" value="">
-                        <label for="town" class="black_taurinas">Pueblo</label>
+                        <label for="date" class="black_taurinas">Fecha*</label>
+                        <input  id="date" required="true" type="text" class="datepicker" name="date" value="">
+                        <label for="town" required="true" class="black_taurinas">Localidad *</label>
                         <input  id="town" type="text" class="validate" name="town" value="">
-                        <label for="event" class="black_taurinas">Tipo de Evento</label>
-                        <input  id="event" type="text" class="validate" name="event" value="">
+                        <label for="ganadery" class="black_taurinas">Ganadería</label>
+                        <input  id="ganadery" type="text" class="validate" name="ganadery" value="">
                     </div>
                     <!-- End col 1-->
                     <!-- Start col 2-->
+                    <div class="col s12 m4 l4">
+                        <label for="event" required="true" class="black_taurinas">Título de Evento *</label>
+                        <input  id="event" type="text" class="validate" name="event" value="">
+                        <label for="province" required="true" class="black_taurinas">Provincia *</label>
+                        <input  id="province" type="text" class="validate" name="province" value="">
+                        <label for="report" class="black_taurinas">Reportaje</label>
+                        <input id="report" type="text" class="validate" name="report" value="">
+                    </div>
+                    <!-- End col 2-->
+                    <!-- Start col 3-->
                     <div class="col s12 m4 l4">
                         <label for="foto" class="black_taurinas">Fotografía</label>
                         <input  id="foto" type="text" class="validate" name="foto" value="">
                         <label for="cartel" class="black_taurinas">Cartel</label>
                         <input  id="cartel" type="text" class="validate" name="cartel" value="">
-                        <label for="ganadery" class="black_taurinas">Ganadería</label>
-                        <input  id="ganadery" type="text" class="validate" name="ganadery" value="">
-
-                    </div>
-                    <!-- End col 2-->
-                    <!-- Start col 3-->
-                    <div class="col s12 m4 l4">
-                        <label for="date" class="black_taurinas">Fecha</label>
-                        <input  id="date" type="text" class="datepicker" name="date" value="">
-                        <label for="real_date" class="black_taurinas">Fecha</label>
+                        <label for="real_date" class="black_taurinas">Fecha Real</label>
                         <input  id="real_date" type="text" class="datepicker" name="real_date" value="">
-                        <label for="report" class="black_taurinas">Reportaje</label>
-                        <input id="report" type="text" class="validate" name="report" value="">
                     </div>
                     <!-- End col 3-->
                 </div>
@@ -69,8 +68,8 @@
                     <div class="col s12 m8 l8 offset-m2 offset-l2">
                         <div class="input-field col s12">
                             <!-- Start select-->
-                            <select multiple required="required" id="selectcharactersefemerides"  name="idpersonajes">
-                                <option value="" disabled selected>Seleccione un personaje</option>
+                            <select multiple required="true" id="selectcharactersefemerides"  name="idpersonajes">
+                                <option value="" disabled selected>Seleccione un personaje *</option>
                                 <%
                                     try {
                                         List<Personaje> listaPersonaje = (List<Personaje>) session.getAttribute("listapersonajes");

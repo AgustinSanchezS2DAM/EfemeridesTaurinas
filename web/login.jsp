@@ -25,12 +25,12 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m12 l12 ">
-                            <input placeholder="Usuario" id="login" value="superadmin" type="text" name="username">
+                            <input placeholder="Usuario" id="login" value="" type="text" name="username">
                         </div>
                     </div>
                     <div class="row margin">
                         <div class="input-field col s12 m12 l12 ">
-                            <input placeholder="Contraseña" id="password" value="connect" type="password" name="password">
+                            <input placeholder="Contraseña" id="password" value="" type="password" name="password">
                         </div>
                     </div>
                     <div class="row">

@@ -4,6 +4,8 @@
     Author     : agustin
 --%>
 
+<%@page import="java.nio.file.FileSystems"%>
+<%@page import="java.nio.file.Path"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="methods.Inform"%>
 <%@page import="org.apache.commons.io.FilenameUtils"%>
@@ -98,6 +100,7 @@
             List<Usuario> listaUsuario;
             List<Personaje> listaPersonaje;
             List<Efemeride> listaEfemeride;
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
 
             op = request.getParameter("op");
 
@@ -177,7 +180,7 @@
                     fechapresentacion = new String(request.getParameter("presentation_date").getBytes("ISO-8859-1"), "UTF-8");
                     fechaalternativa = new String(request.getParameter("alternative_date").getBytes("ISO-8859-1"), "UTF-8");
                     clm = (String) request.getParameter("checkclm");
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd MMM, yyyy");
+                    
 
                     Personaje personaje = new Personaje();
                     personaje.setApellido1(apellido1);
@@ -188,19 +191,19 @@
                     personaje.setCorreo(email);
                     personaje.setDireccion(direccion);
 
-                    if (fechaalternativa.length() !=0) {
+                    if (fechaalternativa.length() != 0) {
                         personaje.setFechaalternativa(formatter.parse(fechaalternativa));
                     }
 
-                    if (fechanacimiento.length() !=0) {
+                    if (fechanacimiento.length() != 0) {
                         personaje.setFechanacimiento(formatter.parse(fechanacimiento));
                     }
 
-                    if (fechapicadores.length() !=0) {
+                    if (fechapicadores.length() != 0) {
                         personaje.setFechapicadores(formatter.parse(fechapicadores));
                     }
 
-                    if (fechapresentacion.length() !=0) {
+                    if (fechapresentacion.length() != 0) {
                         personaje.setFechapresentacion(formatter.parse(fechapresentacion));
                     }
 
@@ -445,7 +448,7 @@
                     fechapresentacion = new String(request.getParameter("presentation_date").getBytes("ISO-8859-1"), "UTF-8");
                     fechaalternativa = new String(request.getParameter("alternative_date").getBytes("ISO-8859-1"), "UTF-8");
                     clm = (String) request.getParameter("checkclm");
-                    SimpleDateFormat formatter = new SimpleDateFormat("dd MMM, yyyy");
+                    
 
                     Personaje personaje = new Personaje();
                     personaje.setIdpersonaje(Integer.parseInt(idpersonaje));
@@ -456,18 +459,18 @@
                     personaje.setBiografia(biografia);
                     personaje.setCorreo(email);
                     personaje.setDireccion(direccion);
-                    if (fechaalternativa.length() !=0) {
+                    if (fechaalternativa.length() != 0) {
                         personaje.setFechaalternativa(formatter.parse(fechaalternativa));
                     }
-                    if (fechanacimiento.length() !=0) {
+                    if (fechanacimiento.length() != 0) {
                         personaje.setFechanacimiento(formatter.parse(fechanacimiento));
                     }
 
-                    if (fechapicadores.length() !=0) {
+                    if (fechapicadores.length() != 0) {
                         personaje.setFechapicadores(formatter.parse(fechapicadores));
                     }
 
-                    if (fechapresentacion.length() !=0) {
+                    if (fechapresentacion.length() != 0) {
                         personaje.setFechapresentacion(formatter.parse(fechapresentacion));
                     }
                     personaje.setNombrecartel(nombrecartel);
@@ -610,8 +613,9 @@
                 String id = (String) request.getParameter("id");
                 try {
 
-                    String urlGuardado = "C:\\Users\\agust\\Desktop\\MADRIJA\\Efemerides Taurinas toledanas\\EfemeridesTaurinas\\web\\files";
-
+                    
+                    String urlGuardado = "/root/tmp/ejemeridesimages";
+                    //String urlGuardado = "C:\\Users\\Agustín Sánchez\\Desktop\\prueba";
                     DiskFileItemFactory factory = new DiskFileItemFactory();
                     factory.setSizeThreshold(1024);
                     factory.setRepository(new File(urlGuardado));
@@ -637,7 +641,7 @@
 
                                 Fotos foto = new Fotos();
                                 foto.setNombreimagen(nombreArchivo);
-                                foto.setImagen("files/" + nombreArchivo);
+                                foto.setImagen("/root/tmp/ejemeridesimages/" + nombreArchivo);
                                 foto.setFotosPK(fotoPK);
 
                                 em.getTransaction().begin();
@@ -657,10 +661,11 @@
                             response.sendRedirect("controller.jsp?op=loadallcharacters");
                             session.setAttribute("correctmessage", "Deve seleccionar la imagen a guardar");
                         }
+                        e.printStackTrace();
                     }
 
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
 
             } else if (op.equals("editImageCharacter")) {

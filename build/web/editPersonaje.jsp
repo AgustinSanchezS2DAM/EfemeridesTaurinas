@@ -36,11 +36,11 @@
                     %>
                     <!-- Start col 1-->
                     <div class="col s12 m6 l6">
-                        <label for="first_name" class="black_taurinas">Nombre</label>
+                        <label for="first_name" class="black_taurinas">Nombre *</label>
                         <input id="first_name" required="true" value="<%=personajeEdit.getNombrepersonaje()%>" type="text" class="validate" name="first_name">
-                        <label for="surname" class="black_taurinas">Primer Apellido</label>
+                        <label for="surname" class="black_taurinas">Primer Apellido *</label>
                         <input  id="frist_surname" required="true" value="<%=personajeEdit.getApellido1()%>" type="text" class="validate" name="frist_surname">
-                        <label for="second_surname"  required="true" class="black_taurinas">Segundo Apellido</label>
+                        <label for="second_surname" class="black_taurinas">Segundo Apellido</label>
                         <input  id="surname" type="text" class="validate" value="<%=personajeEdit.getApellido2()%>" name="second_surname">
                         <label for="birth_province" class="black_taurinas">Provincia de nacimiento</label>
                         <input id="birth_province" type="text" value="<%=personajeEdit.getProvincianacimiento()%>" class="validate" name="birth_province">
@@ -50,13 +50,13 @@
                     <!-- Start col 2-->
                     <div class="col s12 m6 l6">
                         <input class="hidden_display " name="idcharacter" value="<%=personajeEdit.getIdpersonaje()%>">
-                        <label for="first_nickname" required="true" class="black_taurinas">Primer Apodo</label>
-                        <input id="first_nickname" value="<%=personajeEdit.getApodo1()%>" type="text" class="validate" name="first_nickname">
+                        <label for="first_nickname" lass="black_taurinas">Primer Apodo *</label>
+                        <input id="first_nickname" required="true" value="<%=personajeEdit.getApodo1()%>" type="text" class="validate" name="first_nickname">
                         <label for="second_nickname" class="black_taurinas">Segundo Apodo</label>
                         <input id="second_nickname" type="text" value="<%=personajeEdit.getApodo2()%>" class="validate" name="second_nickname">
-                        <label for="birth_date" required="true" class="black_taurinas">Fecha Nacimiento</label>
+                        <label for="birth_date" class="black_taurinas">Fecha Nacimiento</label>
                         <input id="birth_date" type="text" value="<%=fechanacimientoEdit%>" class="datepicker" name="birth_date">
-                        <label for="birth_town" class="black_taurinas">Pueblo de nacimiento</label>
+                        <label for="birth_town" class="black_taurinas">Localidad de nacimiento</label>
                         <input id="birth_town" type="text" value="<%=personajeEdit.getPueblonacimiento()%>" class="validate" name="birth_town">
                     </div>
                     <!-- End col 2-->
@@ -69,10 +69,10 @@
                     <!-- Start frist col personal detail-->
                     <div class="col s12 m6 l4">
                         <label for="name_poster"  class="black_taurinas">Nombre Cartel</label>
-                        <input id="name_poster" value="<%=personajeEdit.getNombrecartel()%>" required="true" type="text" class="validate" name="name_poster">
+                        <input id="name_poster" value="<%=personajeEdit.getNombrecartel()%>" type="text" class="validate" name="name_poster">
                         <label for="img" class="black_taurinas">Imagen <i id="informationimage " data-position="bottom" data-delay="10" data-tooltip="Debe colocar la URL de la imagen" class=" tooltipped material-icons information_orange_buttons">info</i></label>
                         <input  id="img" type="text" value="<%=personajeEdit.getFotografia()%>" class="validate" name="img">
-                        <label for="picadores_date" required="true" class="black_taurinas">Fecha Picadores</label>
+                        <label for="picadores_date" class="black_taurinas">Fecha Picadores</label>
                         <input id="picadores_date" type="text" value="<%=fechapicadoresEdit%>" class="datepicker" name="picadores_date">
                     </div>
                     <!-- End frist col personal detail-->
@@ -82,7 +82,7 @@
                         <input id="direction" value="<%=personajeEdit.getDireccion()%>" type="text" class="validate" name="direction">
                         <label for="contact" class="black_taurinas">Contacto</label>
                         <input id="contact" value="<%=personajeEdit.getPersonadecontacto()%>" type="text" class="validate" name="contact">
-                        <label for="presentation_date" required="true" class="black_taurinas">Fecha Presentacion</label>
+                        <label for="presentation_date" class="black_taurinas">Fecha Presentacion</label>
                         <input id="presentation_date" type="text" value="<%=fechapresentacionEdit%>" class="datepicker" name="presentation_date">
                     </div>
                     <!-- End second col personal detail-->
@@ -92,7 +92,7 @@
                         <input id="phone" value="<%=personajeEdit.getTelefono()%>" type="number" class="validate" name="phone">  
                         <label for="email" class="black_taurinas">Email</label>
                         <input id="email" value="<%=personajeEdit.getCorreo()%>" type="email" class="validate" name="email">
-                        <label for="alternative_date" required="true" class="black_taurinas">Fecha Alternativa</label>
+                        <label for="alternative_date" class="black_taurinas">Fecha Alternativa</label>
                         <input id="alternative_date" type="text" value="<%=fechaalternativaEdit%>" class="datepicker" name="alternative_date">
                     </div>
                     <!-- End third col personal detail-->
@@ -163,7 +163,7 @@
                     <!-- End col 1-->
                     <!-- Start col 2-->
                     <div class="col s12 m6 l6">
-                        <label for="current_town" class="black_taurinas">Pueblo actual</label>
+                        <label for="current_town" class="black_taurinas">Localidad actual</label>
                         <input id="current_town" value="<%=personajeEdit.getPuebloactual()%>" type="text" class="validate" name="current_town">
                     </div>
                     <!-- End col 2-->
